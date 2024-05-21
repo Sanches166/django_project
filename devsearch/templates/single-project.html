@@ -1,17 +1,11 @@
-{% extends "main.html" %} {% block content %}
+<!DOCTYPE html>
+<html lang="en">
 
-<img style="max-width: 500px" src="{{ project.featured_image.url }}" />
 
-<h1>{{project.title}}</h1>
-<hr />
-{% for tag in project.tags.all%}
-<span style="border: 1px solid grey">{{tag}}</span>
-{% endfor %}
-<hr />
-<br />
-<p>{{project.description}}</p>
+<body>
 
-<main class="singleProject my-md">
+  <!-- Main Section -->
+  <main class="singleProject my-md">
     <div class="container">
       <div class="layout">
         <div class="column column--1of3">
@@ -115,5 +109,6 @@
     </div>
     </div>
   </main>
+</body>
 
-{% endblock content %}
+</html>

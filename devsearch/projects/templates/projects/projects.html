@@ -1,13 +1,4 @@
 {% extends 'main.html' %} {% block content %}
-<table>
-  {% for project in projects %}
-  <tr>
-    <td><a href="{% url 'update-project' project.id%}">Edit</a></td>
-    <td><a href="{% url 'delete-project' project.id%}">Delete</a></td>
-    <td><a href="{% url 'project' project.id%}">View</a></td>
-  </tr>
-  {% endfor %}
-</table>
 
 <main class="projects">
   <section class="hero-section text-center">
@@ -58,18 +49,15 @@
                 </p>
                 <p class="project--rating">
                   <span style="font-weight: bold">{{project.vote_ratio}}%</span>
-                  Postitive Feedback ({{project.vote_total}} votes)
+                  Postitive Feedback ({{project.vote_total}}
+                  vote{{project.vote_total|pluralize:"s"}})
                 </p>
                 <div class="project__tags">
+                  {% for tag in project.tags.all %}
                   <span class="tag tag--pill tag--main">
-                    <small>NextJS</small>
+                    <small>{{tag}}</small>
                   </span>
-                  <span class="tag tag--pill tag--main">
-                    <small>GraphQL</small>
-                  </span>
-                  <span class="tag tag--pill tag--main">
-                    <small>TypeScript</small>
-                  </span>
+                  {% endfor %}
                 </div>
               </div>
             </a>

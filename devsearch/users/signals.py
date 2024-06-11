@@ -1,9 +1,10 @@
 from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
-from .models import Profile
-from django.contrib.auth.models import User
 
-@receiver(post_save, sender=Profile)
+from django.contrib.auth.models import User
+from .models import Profile
+
+# @receiver(post_save, sender=Profile)
 def createProfile(sender, instance, created, **kwargs):
     print('Profile signal triggered')
     if created:
